@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#200815">
+<title>MODY LOVE ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #ff4f9a;
+  --light-pink: #ffb4d5;
+  --card: rgba(255,255,255,0.07);
+  --border: rgba(255,130,190,0.25);
+}
+
+body {
+  min-height: 100vh;
+  font-family: Tahoma, Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(ellipse at top, #54203d, transparent 55%),
+    linear-gradient(145deg, #10060d, #260c1d, #10060d);
+  overflow-x: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 35px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 45px #ff4f9a18;
+}
+
+.big-heart {
+  font-size: 65px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.login-card h1 {
+  margin: 12px 0;
+  font-size: 34px;
+  color: var(--light-pink);
+  letter-spacing: 2px;
+}
+
+.login-card p {
+  color: #e9c5d6;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  color: white;
+  background: #ffffff0c;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  margin-bottom: 14px;
+}
+
+input:focus {
+  border-color: var(--pink);
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #ff368b, #b92778);
+  box-shadow: 0 7px 25px #ff368b30;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+#error {
+  color: #ff9ac6;
+  margin-top: 12px;
+  min-height: 22px;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+header {
+  text-align: center;
+  padding: 25px 12px;
+  background: rgba(25,8,20,0.85);
+  border-bottom: 1px solid rgba(255,100,160,0.3);
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  font-size: clamp(30px,8vw,48px);
+  font-weight: bold;
+  color: #ff79b0;
+  text-shadow: 0 0 12px #ff247f, 0 0 30px #a60050;
+  letter-spacing: 3px;
+}
+
+header p {
+  color: #f5bfd6;
+  margin-top: 8px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 8px;
+  background: rgba(15,8,17,0.9);
+}
+
+nav button {
+  background: rgba(255,70,140,0.12);
+  color: #ffe0ed;
+  border: 1px solid rgba(255,110,170,0.4);
+  border-radius: 22px;
+  padding: 10px 14px;
+  transition: 0.3s;
+}
+
+nav button:hover,
+nav button:focus-visible,
+nav button.active {
+  background: #ff438f;
+  color: white;
+  box-shadow: 0 0 18px rgba(255,67,143,0.6);
+  transform: translateY(-2px);
+}
+
+main {
+  width: min(calc(100% - 24px), 1000px);
+  margin: 25px auto 50px;
+}
+
+.page {
+  animation: pageAppear 0.5s ease;
+}
+
+@keyframes pageAppear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel {
+  background: rgba(35,17,31,0.8);
+  border: 1px solid rgba(255,113,175,0.3);
+  border-radius: 24px;
+  padding: clamp(18px,5vw,32px);
+  margin-bottom: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+  backdrop-filter: blur(12px);
+}
+
+.panel h1,
+.panel h2 {
+  color: #ff9ac4;
+  margin-bottom: 15px;
+}
+
+.panel h2 {
+  font-size: clamp(22px,5vw,30px);
+}
+
+.panel p {
+  line-height: 1.9;
+  color: #f8dce9;
+}
+
+.center {
+  text-align: center;
+}
+
+.welcome {
+  font-size: clamp(28px,7vw,40px);
+  color: #ff9ac4;
+  text-shadow: 0 0 15px #ff247f;
+  margin: 15px 0;
+}
+
+.love-note {
+  font-size: 17px;
+  line-height: 2.1 !important;
+}
+
+.rose-grid,
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 15px;
+}
+
+.rose {
+  background: rgba(255,85,150,0.09);
+  border: 1px solid rgba(255,130,180,0.22);
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  color: #ffe3ef;
+  line-height: 1.7;
+}
+
+.rose .emoji {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.gallery-description {
+  margin-bottom: 20px;
+}
+
+.photo-card {
+  display: block;
+  text-decoration: none;
+  color: #ffe3ef;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,130,180,0.25);
+  border-radius: 18px;
+  padding: 10px;
+  overflow: hidden;
+  transition: 0.25s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255,65,140,0.25);
+}
+
+.photo-placeholder {
+  min-height: 150px;
+  border-radius: 13px;
+  background: linear-gradient(135deg,#43152f,#1d1830,#602044);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.photo-placeholder span:first-child {
+  font-size: 38px;
+}
+
+.photo-placeholder small {
+  color: #ffc2dc;
+}
+
+.photo-card p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.heart-decoration {
+  position: fixed;
+  bottom: -40px;
+  z-index: 10;
+  pointer-events: none;
+  animation: floatHeart 8s linear forwards;
+  opacity: 0.7;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: 0.7; }
+  85% { opacity: 0.5; }
+  100% {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+@media (max-width:480px) {
+  nav { gap: 7px; }
+
+  nav button {
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+
+  .photo-placeholder {
+    min-height: 120px;
+  }
+}
+
+@media (max-width:360px) {
+  .gallery-grid,
+  .rose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- شاشة كلمة السر -->
+<div id="login">
+  <div class="login-card">
+    <div class="big-heart">❤️</div>
+    <h1>MODY LOVE</h1>
+
+    <p>
+      فيه مكان صغير معمول مخصوص ليك يا مودي 💗
+      <br>
+      اكتب كلمة السر عشان تدخل عالمنا.
+    </p>
+
+    <form id="loginForm">
+      <input
+        id="password"
+        type="password"
+        placeholder="اكتب كلمة السر..."
+        autocomplete="off"
+        aria-label="كلمة السر"
+        required
+      >
+
+      <button class="primary-btn" type="submit">
+        افتح عالمنا ❤️
+      </button>
+    </form>
+
+    <div id="error" role="alert"></div>
+  </div>
+</div>
+
+<!-- الموقع -->
+<div id="website" class="hidden">
+
+  <header>
+    <div class="logo">MODY LOVE ❤️</div>
+    <p>كل تفصيلة هنا معمولة بمحبة مخصوص ليك 💗</p>
+  </header>
+
+  <nav aria-label="القائمة الرئيسية">
+    <button class="active" data-page="home">🏠 الرئيسية</button>
+    <button data-page="letter">💌 الرسالة</button>
+    <button data-page="roses">🌹 الورد</button>
+    <button data-page="gallery">📸 الصور</button>
+    <button data-page="gift">🎁 الهدية</button>
+  </nav>
+
+  <main>
+
+    <!-- الرئيسية -->
+    <section id="home" class="page">
+      <div class="panel center">
+        <div class="big-heart">💖</div>
+        <h1 class="welcome">Welcome, Mody!</h1>
+
+        <p class="love-note">
+          نورت المكان اللي معمول مخصوص ليك.
+          <br>
+          كل ركن هنا وراه كلمة حلوة وذكرى جميلة.
+          <br>
+          اتفرج على كل حاجة واستمتع بهديتك ❤️
+        </p>
+      </div>
+
+      <div class="panel center">
+        <h2>حكاية صغيرة 💗</h2>
+        <p>
+          مش لازم الهدية تكون كبيرة عشان تبقى مميزة،
+          ساعات فكرة بسيطة معمولة من القلب بتكون أحلى بكتير.
+          والموقع ده معمول عشان يكون ذكرى جميلة ليك.
+        </p>
+      </div>
+    </section>
+
+    <!-- الرسالة -->
+    <section id="letter" class="page hidden">
+      <div class="panel">
+        <h2>💌 رسالة مخصوص ليك</h2>
+
+        <p class="love-note">
+          يا مودي ❤️
+          <br><br>
+          حبيت أعملك حاجة مختلفة عن أي هدية عادية،
+          حاجة تقدر تفتحها وتفتكر إن فيه حد تعب
+          عشان يرسم ابتسامة على وشك.
+          <br><br>
+          يمكن الموقع مجرد كلمات وصور وألوان،
+          بس الفكرة اللي وراه أكبر من كده:
+          إنك تستاهل لحظات حلوة وذكريات تفضل معاك.
+          <br><br>
+          أتمنى كل مرة تفتح فيها الصفحة دي تبتسم،
+          وتفتكر إن فيه ناس وجودها بيخلي الأيام أحلى.
+          <br><br>
+          من القلب، ليك أنت ❤️
+        </p>
+      </div>
+    </section>
+
+    <!-- الورد -->
+    <section id="roses" class="page hidden">
+      <div class="panel">
+        <h2>🌹 شوية ورد ليك</h2>
+        <p>كل وردة معاها كلمة صغيرة من القلب ❤️</p>
+        <br>
+
+        <div class="rose-grid">
+          <div class="rose"><span class="emoji">🌹</span>وجودك بيضيف بهجة للأيام.</div>
+          <div class="rose"><span class="emoji">🌷</span>أتمنى الضحكة متفارقش وشك.</div>
+          <div class="rose"><span class="emoji">🌸</span>تستاهل كل حاجة جميلة.</div>
+          <div class="rose"><span class="emoji">💐</span>خليك دايمًا فخور بنفسك.</div>
+          <div class="rose"><span class="emoji">🌺</span>كل يوم فرصة لحاجة أحلى.</div>
+          <div class="rose"><span class="emoji">🌻</span>خليك سبب في ابتسامة حد.</div>
+          <div class="rose"><span class="emoji">🪻</span>الذكريات الحلوة بتفضل جوانا.</div>
+          <div class="rose"><span class="emoji">❤️</span>دي هدية بسيطة من القلب.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- معرض الصور -->
+    <section id="gallery" class="page hidden">
+      <div class="panel">
+        <h2>📸 ذكريات مخصوصة لمودي ❤️</h2>
+        <p class="gallery-description">
+          ست صور، وكل صورة ليها إحساس وذكرى جميلة ✨
+        </p>
+
+        <div class="gallery-grid">
+
+          <a class="photo-card" href="https://pin.it/5VEv0ONL1"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة الأولى</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>يا خير ما أهدتني الأيام 💗</p>
+          </a>
+
+          <a class="photo-card" href="https://pin.it/6HEgl5TKo"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة التانية</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>ذكرى حلوة ✨</p>
+          </a>
+
+          <a class="photo-card" href="https://pin.it/50VPzfkGz"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة التالتة</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>لحظة جميلة 🌹</p>
+          </a>
+
+          <a class="photo-card" href="https://pin.it/7gQEY9nCE"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة الرابعة</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>حكاية صغيرة 💕</p>
+          </a>
+
+          <a class="photo-card" href="https://pin.it/1xg0or11S"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة الخامسة</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>من القلب لمودي 💖</p>
+          </a>
+
+          <a class="photo-card" href="https://pin.it/16SlDPH45"
+             target="_blank" rel="noopener noreferrer">
+            <div class="photo-placeholder">
+              <span>🖼️</span>
+              <span>الصورة السادسة</span>
+              <small>اضغط لفتح الصورة ❤️</small>
+            </div>
+            <p>أحلى ختام 🎁</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- الهدية -->
+    <section id="gift" class="page hidden">
+      <div class="panel center">
+        <h2>🎁 مفاجأة مخصوص لمودي</h2>
+        <p>فيه هدية صغيرة مستنياك يا مودي ❤️</p>
+
+        <div id="gift-box" style="font-size:85px;margin:25px">
+          🎁
+        </div>
+
+        <button class="primary-btn" id="open-gift" type="button">
+          افتح هديتك ❤️
+        </button>
+
+        <p id="gift-message" class="hidden" style="margin-top:25px">
+          يا مودي ❤️
+          <br><br>
+          أتمنى أيامك تكون مليانة فرحة ونجاح،
+          وتفضل دايمًا محاط بناس بتحبلك الخير.
+          <br><br>
+          دي هدية بسيطة معمولة مخصوص عشانك. 💖
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="text-align:center;padding:25px;color:#f5bfd6">
+    صنع بحب ❤️ خصيصًا لمودي
+    <br>
+    <span style="font-size:12px">MODY LOVE © 2026</span>
+  </footer>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const login = document.getElementById("login");
+  const website = document.getElementById("website");
+  const form = document.getElementById("loginForm");
+  const input = document.getElementById("password");
+  const error = document.getElementById("error");
+
+  function showPage(id) {
+    document.querySelectorAll("#website .page").forEach(function (page) {
+      page.classList.add("hidden");
+    });
+
+    const page = document.getElementById(id);
+
+    if (!page) return;
+
+    page.classList.remove("hidden");
+
+    document.querySelectorAll("#website nav button").forEach(function (button) {
+      button.classList.toggle("active", button.dataset.page === id);
+    });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // تسجيل الدخول
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (input.value.trim() === "الدود") {
+      error.textContent = "";
+      login.classList.add("hidden");
+      website.classList.remove("hidden");
+      showPage("home");
+    } else {
+      error.textContent = "كلمة السر مش صحيحة، جرب تاني ❤️";
+      input.focus();
+    }
+  });
+
+  // التنقل بين الأقسام
+  document.querySelectorAll("#website nav button").forEach(function (button) {
+    button.addEventListener("click", function () {
+      showPage(button.dataset.page);
+    });
+  });
+
+  // فتح الهدية
+  const giftButton = document.getElementById("open-gift");
+
+  giftButton.addEventListener("click", function () {
+    document.getElementById("gift-message").classList.remove("hidden");
+    document.getElementById("gift-box").textContent = "💝";
+
+    giftButton.textContent = "هدية من القلب ❤️";
+    giftButton.disabled = true;
+
+    createHearts();
+  });
+
+  // قلوب متحركة
+  function createHearts() {
+    const symbols = ["❤️", "💕", "💖", "💗", "💘"];
+
+    for (let i = 0; i < 12; i++) {
+      setTimeout(function () {
+        const heart = document.createElement("div");
+
+        heart.className = "heart-decoration";
+        heart.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left = Math.random() * 95 + "vw";
+        heart.style.fontSize = 16 + Math.random() * 22 + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function () {
+          heart.remove();
+        }, 8500);
+      }, i * 180);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
